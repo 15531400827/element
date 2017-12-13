@@ -11,6 +11,7 @@
       :style="{ 'max-width': inputWidth - 32 + 'px' }">
       <span v-if="collapseTags && selected.length">
         <el-tag
+                v-if="selected.length===1"
           :closable="!disabled"
           size="small"
           :hit="selected[0].hitState"
@@ -25,7 +26,7 @@
           size="small"
           type="info"
           disable-transitions>
-          <span class="el-select__tags-text">+ {{ selected.length }}</span>
+          <span class="el-select__tags-text">已选择{{ selected.length }}条数据</span>
         </el-tag>
       </span>
       <transition-group @after-leave="resetInputHeight" v-if="!collapseTags">
